@@ -1,0 +1,10 @@
+version: "3"
+services:
+  nginx:
+    image: 3dsinteractive/nginx:1.12
+    ports:
+      - 8080:8080
+      - 8443:8443
+    restart: always
+    volumes:
+      - ./dockers/nginx/nginx:/bitnami/nginx

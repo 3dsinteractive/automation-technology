@@ -1,0 +1,23 @@
+First Program
+
+0. git clone git@github.com:3dsinteractive/automation-scalable-technology-with-golang-and-k8s-part-1.git
+   Directory structure will follow each lesson respectively
+   
+1. Download and install VSCode (Use Google to search for "install vscode")
+
+2. Open vscode at directory chapter01-basic-knowledges/1.1-basic-golang/02-first-program
+
+3. Open terminal in VSCode using (Ctrl + ~)
+
+4. Run command
+$ go mod init automationworkshop/main
+go: creating new go.mod: module automationworkshop/main
+
+5. Run command
+$ go run main.go
+My First Program
+This is from MyPrintln
+
+6. Program are described by the comment in sourcecode
+
+

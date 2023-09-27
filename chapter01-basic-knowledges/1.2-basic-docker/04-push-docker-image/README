@@ -1,0 +1,14 @@
+Push docker image
+
+0. Look at slides 1.2 Basic Docker (Docker images and containers)
+
+1. Register for https://hub.docker.com
+
+2. Create public repository call [your-repository-name]/mynginx:1.0
+
+3. docker login
+[username] : [your-repository-name]
+[password] : xxxxxxxxx
+
+4. Run command (Change [your-repository-name] to your registered docker name)
+$ docker push [your-repository-name]/mynginx:1.0
