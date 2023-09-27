@@ -1,15 +1,21 @@
 ## Variables and Types
 
-1. Open vscode at directory chapter01-basic-knowledges/1.1-basic-golang/03-variable-types
+1. Open directory 
+```bash
+cd /root/automation-technology/chapter01-basic-knowledges/1.1-basic-golang/03-variable-types
+```
 
-2. Open terminal in VSCode using (Shortcut Ctrl + ~)
+2. Run command
+```sh
+go mod init automationworkshop/main
+```
 
 3. Run command
-$ go mod init automationworkshop/main
-go: creating new go.mod: module automationworkshop/main
+```bash
+go run main.go
+```
 
-4. Run command
-$ go run main.go
+```bash
 string =  This variable type string
 int =  305
 bool =  true
@@ -34,5 +40,4 @@ theCitizen is nil
 Gender is Unspecify
 Gender =  UNSPECIFY
 ---
-
-5. Sourcecode are described by the comments
+```

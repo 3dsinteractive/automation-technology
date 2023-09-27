@@ -1,11 +1,11 @@
 ## Install Golang
 
 1. Install Golang on ubuntu
-```sh
+```bash
 apt -y install golang
 ```
 
 2. After install open terminal and run command
-```sh
+```bash
 go version
 ```

@@ -6,6 +6,7 @@ import (
 )
 
 func main() {
+	
 	// 1. Literal types
 	// Note: Literal type copy by value
 	theString := "This variable type string"
@@ -15,6 +16,7 @@ func main() {
 	printInt(theInt)
 	printBool(theBool)
 	printUnderline()
+
 	// 2. Type in Golang are static type
 	// printString(theInt) // Compile error
 
