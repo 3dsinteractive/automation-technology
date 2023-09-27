@@ -34,3 +34,11 @@ groupadd docker
 ```bash
 usermod -aG docker root
 ```
+
+5. Create user 1001
+```bash
+useradd -u 1001 --badname --no-create-home 1001
+```
+```bash
+usermod -aG docker 1001
+```
