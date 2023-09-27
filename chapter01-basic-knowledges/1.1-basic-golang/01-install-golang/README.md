@@ -2,7 +2,7 @@
 
 1. Install Golang on ubuntu
 ```bash
-apt -y install golang
+apt update -y && apt install -y golang
 ```
 
 2. After install open terminal and run command
