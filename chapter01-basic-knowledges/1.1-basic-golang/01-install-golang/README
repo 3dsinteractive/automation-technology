@@ -1,9 +1,11 @@
-Install Golang
+## Install Golang
 
-1. Install Golang by Google "install golang"
+1. Install Golang on ubuntu
+```
+apt -y install golang
+```
 
-2. Download installer according to your platform (Mac, Windows, Ubuntu, etc)
-
-3. After install open terminal and run command
-$ go version
-go version go1.15.7 darwin/amd64
+2. After install open terminal and run command
+```
+go version
+```
