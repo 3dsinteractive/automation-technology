@@ -9,7 +9,7 @@ cd /root/automation-technology/chapter01-basic-knowledges/1.1-basic-golang/04-if
 go mod init automationworkshop/main
 ```
 
-3. Run Program
+3. Run command
 ```bash
 go run main.go
 ```
