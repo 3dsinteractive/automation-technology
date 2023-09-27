@@ -1,13 +1,20 @@
-If and Loop
-
-1. Open vscode in chapter01-basic-knowledges/1.1-basic-golang/04-if-and-loop
+## If and Loop
+1. Open directory 
+```bash
+cd /root/automation-technology/chapter01-basic-knowledges/1.1-basic-golang/04-if-and-loop
+```
 
 2. Run command
-$ go mod init automationworkshop/main
-go: creating new go.mod: module automationworkshop/main
+```bash
+go mod init automationworkshop/main
+```
 
 3. Run Program
-$ go run main.go
+```bash
+go run main.go
+```
+
+```bash
 CitizenID 1234, you are logged in
 ---
 You are Female
@@ -51,5 +58,4 @@ For n=8
 For n=9
 For n=10
 For n=11
-
-4. Explain are in the source code comment
+```
