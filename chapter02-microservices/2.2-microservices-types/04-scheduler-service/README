@@ -27,5 +27,5 @@ Scheduler:  Tick at 21:40:56
 Scheduler:  Tick at 21:40:57
 
 4. Run command for cleanup
-$ docker-compose down
+$ docker compose down
 

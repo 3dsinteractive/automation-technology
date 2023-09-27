@@ -5,7 +5,7 @@ AsyncTask Service
 1. Open vscode at chapter02-microservices/2.2-microservices-types/05-asynctask-service
 
 2. Start kafka and zookeeper locally via docker
-$ docker-compose up -d
+$ docker compose up -d
 * Wait until container is ready
 
 $ docker ps
@@ -30,4 +30,4 @@ curl -X GET "localhost:8080/citizen/register?ref=atask-xxxxxxxxxxx"
 {"code":200,"data":{"id":"123"},"status":"success"}
 
 7. Run command for cleanup
-$ docker-compose down
+$ docker compose down

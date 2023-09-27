@@ -4,7 +4,7 @@ Service Startup and Teardown
 
 
 2. Start kafka and zookeeper locally via docker
-$ docker-compose up -d
+$ docker compose up -d
 * Wait until container is ready
 
 $ docker ps
@@ -97,4 +97,4 @@ MS: microservice.go 662 Start cleanup
 PROD: producer.go 83 Close successfully
 
 5. Run command to cleanup
-$ docker-compose down
+$ docker compose down

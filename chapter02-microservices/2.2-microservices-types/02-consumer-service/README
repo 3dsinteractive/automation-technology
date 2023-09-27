@@ -5,7 +5,7 @@ Consumer Service
 1. Open vscode at chapter02-microservices/2.2-microservices-types/02-consumer-service
 
 2. Start kafka and zookeeper locally via docker
-$ docker-compose up -d
+$ docker compose up -d
 * Wait until container is ready
 
 $ docker ps
@@ -33,4 +33,4 @@ Consumer:  {"message_id":8}
 Consumer:  {"message_id":9}
 
 5. Run command for cleanup
-$ docker-compose down
+$ docker compose down

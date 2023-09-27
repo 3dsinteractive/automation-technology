@@ -5,7 +5,7 @@ Batch Consumer
 1. open vscode at chapter02-microservices/2.2-microservices-types/03-batch-consumer-service
 
 2. Start kafka and zookeeper locally via docker
-$ docker-compose up -d
+$ docker compose up -d
 * Wait until container is ready
 
 $ docker ps
@@ -43,4 +43,4 @@ Batch Consumer:  {"message_id":9}
 Batch Consumer:  End Batch
 
 5. Run command to cleanup
-$ docker-compose down
+$ docker compose down
