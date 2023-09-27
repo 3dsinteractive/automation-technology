@@ -1,5 +1,4 @@
-## The workshop content for Automation and scalable technology using Golang and K8S workshop
-
+## Automation Technology Workshop
 
 ### Workshop Outline
 
