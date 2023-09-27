@@ -87,13 +87,13 @@ deployment.apps/kfk3 created
 kubectl get po -n basic-kafka
 ```
 ```bash
-NAME                    READY   STATUS              RESTARTS   AGE
-kfk1-86886b6b84-xkfh2   0/1     ContainerCreating   0          14s
-kfk2-5b69dfcdb4-kwwk2   0/1     ContainerCreating   0          14s
-kfk3-6d4c8874c6-ll7nh   0/1     ContainerCreating   0          14s
-zk1-76cc547698-jhngx    1/1     Running             0          12m
-zk2-7bb59d6788-rc8s5    1/1     Running             0          12m
-zk3-566db54d6b-g579s    1/1     Running             0          12m
+NAME                    READY   STATUS    RESTARTS   AGE
+zk1-65559d76fc-t9swb    1/1     Running   0          10m
+zk2-59494b946f-4rfwr    1/1     Running   0          10m
+zk3-6c88b6f849-jrqz5    1/1     Running   0          10m
+kfk1-d78b96bbc-ndlzf    1/1     Running   0          4m53s
+kfk2-7bc9945669-77x6d   1/1     Running   0          4m53s
+kfk3-fbbd79879-hlp25    1/1     Running   0          4m53s
 ```
 
 **Wait until STATUS = Running and READY = 1/1**
@@ -114,12 +114,12 @@ kubectl get svc -n basic-kafka
 ```
 ```bash
 NAME   TYPE        CLUSTER-IP   EXTERNAL-IP   PORT(S)                      AGE
-kfk1   ClusterIP   None         <none>        9092/TCP                     28s
-kfk2   ClusterIP   None         <none>        9092/TCP                     28s
-kfk3   ClusterIP   None         <none>        9092/TCP                     28s
-zk1    ClusterIP   None         <none>        2181/TCP,2888/TCP,3888/TCP   14m
-zk2    ClusterIP   None         <none>        2181/TCP,2888/TCP,3888/TCP   14m
-zk3    ClusterIP   None         <none>        2181/TCP,2888/TCP,3888/TCP   14m
+zk1    ClusterIP   None         <none>        2181/TCP,2888/TCP,3888/TCP   5m46s
+zk2    ClusterIP   None         <none>        2181/TCP,2888/TCP,3888/TCP   5m46s
+zk3    ClusterIP   None         <none>        2181/TCP,2888/TCP,3888/TCP   5m46s
+kfk1   ClusterIP   None         <none>        9092/TCP                     6s
+kfk2   ClusterIP   None         <none>        9092/TCP                     6s
+kfk3   ClusterIP   None         <none>        9092/TCP                     6s
 ```
 
 12. Create client-util pod
