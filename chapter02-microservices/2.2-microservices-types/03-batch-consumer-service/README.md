@@ -7,12 +7,12 @@
 cd /root/automation-technology/chapter02-microservices/2.2-microservices-types/03-batch-consumer-service
 ```
 
-2. Start kafka and zookeeper
+3. Start kafka and zookeeper
 ```bash
 docker compose up -d
 ```
 
-3. Wait until container is ready
+4. Wait until container is ready
 ```bash
 docker ps
 ```
@@ -22,18 +22,18 @@ CONTAINER ID   IMAGE                             COMMAND                  CREATE
 09f00c0618e8   3dsinteractive/zookeeper:3.0      "/app-entrypoint.sh …"   10 seconds ago   Up 9 seconds   2888/tcp, 0.0.0.0:2181->2181/tcp, :::2181->2181/tcp, 3888/tcp   02-consumer-service-zookeeper-1
 ```
 
-4. Run command to init project
+5. Run command to init project
 ```bash
 go mod init automationworkshop/main
 go mod tidy
 ```
 
-5. Run command to build project
+6. Run command to build project
 ```bash
 go build .
 ```
 
-6. Run program
+7. Run program
 ```bash
 ./main
 ```
@@ -61,7 +61,7 @@ Batch Consumer:  {"message_id":9}
 Batch Consumer:  End Batch
 ```
 
-7. Run command to cleanup
+8. Run command to cleanup
 ```bash
 docker compose down
 ```
