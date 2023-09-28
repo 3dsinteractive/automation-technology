@@ -27,7 +27,17 @@ ingress           Active   39m
 basic-kafka       Active   7s
 ```
 
-4. Create zookeeper deployment
+4. Create zookeeper service
+```bash
+kubectl apply -f 02-service-zk.yml
+```
+```bash
+service/zk1 created
+service/zk2 created
+service/zk3 created
+```
+
+5. Create zookeeper deployment
 ```bash
 kubectl apply -f 01-deployment-zk.yml
 ```
@@ -38,7 +48,7 @@ deployment.apps/zk2 created
 deployment.apps/zk3 created
 ```
 
-5. Check zookeeper deployment
+6. Check zookeeper deployment
 ```bash
 kubectl get po -n basic-kafka
 ```
@@ -51,16 +61,6 @@ zk3-6c88b6f849-jrqz5   1/1     Running   0          4m36s
 
 **Wait until STATUS = Running and READY = 1/1**
 
-6. Create zookeeper service
-```bash
-kubectl apply -f 02-service-zk.yml
-```
-```bash
-service/zk1 created
-service/zk2 created
-service/zk3 created
-```
-
 7. Check zookeeper service
 ```bash
 kubectl get svc -n basic-kafka
@@ -71,8 +71,17 @@ zk1    ClusterIP   None         <none>        2181/TCP,2888/TCP,3888/TCP   8s
 zk2    ClusterIP   None         <none>        2181/TCP,2888/TCP,3888/TCP   8s
 zk3    ClusterIP   None         <none>        2181/TCP,2888/TCP,3888/TCP   8s
 ```
+8. Create kafka service
+```bash
+kubectl apply -f 04-service-kfk.yml
+```
+```bash
+service/kfk1 created
+service/kfk2 created
+service/kfk3 created
+```
 
-8. Create kafka deployment
+9. Create kafka deployment
 ```bash
 kubectl apply -f 03-deployment-kfk.yml
 ```
@@ -82,7 +91,7 @@ deployment.apps/kfk2 created
 deployment.apps/kfk3 created
 ```
 
-9. Check kafka deployment
+10. Check kafka deployment
 ```bash
 kubectl get po -n basic-kafka
 ```
@@ -97,16 +106,6 @@ kfk3-fbbd79879-hlp25    1/1     Running   0          4m53s
 ```
 
 **Wait until STATUS = Running and READY = 1/1**
-
-10. Create kafka service
-```bash
-kubectl apply -f 04-service-kfk.yml
-```
-```bash
-service/kfk1 created
-service/kfk2 created
-service/kfk3 created
-```
 
 11. Check kafka service
 ```bash
