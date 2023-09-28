@@ -1,12 +1,12 @@
-FROM 3dsinteractive/golang:1.14-alpine3.9-librdfkafka1.4.0
+FROM 3dsinteractive/golang:1.20-alpine3.16-librdfkafka1.9.2
 
 # 1. Add all go files and build
 WORKDIR /go/src/bitbucket.org/automationworkshop/main
 ADD . /go/src/bitbucket.org/automationworkshop/main
-RUN go build -mod vendor -i -tags "musl static_all" .
+RUN go build -mod vendor -tags "musl static_all" .
 
 # ================
-FROM 3dsinteractive/alpine:3.9
+FROM 3dsinteractive/alpine:3.16
 
 # 2. Use multi stage docker file, and copy executable file from previous stage
 COPY --from=0 /etc/ssl/certs/ca-certificates.crt /etc/ssl/certs/

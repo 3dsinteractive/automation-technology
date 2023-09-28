@@ -1,6 +1,6 @@
-Healthcheck Readiness
+## Healthcheck Readiness
 
-0. Look into the slides about service healthcheck
+1. Look into the slides about service healthcheck
 
 1. Open vscode at chapter03-deploy-healthchecks/3.2-healthcheck-readiness
 

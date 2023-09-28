@@ -5,7 +5,7 @@
 APP_VERSION=1.0
 TIMESTAMP=20210117185518
 DEPLOY_ENV=prd
-DOCKER_REPOSITORY=
+DOCKER_REPOSITORY=realcdp
 
 # 2. commit will push docker image to repository
 function commit() {
@@ -22,10 +22,12 @@ function build_api() {
     GO=/usr/local/go/bin/go
     if [ -f "$GO" ]; then
         /usr/local/go/bin/go mod init automationworkshop/main
+        /usr/local/go/bin/go mod tidy
         /usr/local/go/bin/go get
         /usr/local/go/bin/go mod vendor
     else 
         go mod init automationworkshop/main
+        go mod tidy
         go get
         go mod vendor
     fi
