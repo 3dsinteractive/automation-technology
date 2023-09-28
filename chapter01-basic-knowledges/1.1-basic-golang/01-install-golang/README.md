@@ -17,7 +17,7 @@ echo "export PATH=/usr/local/go/bin:$PATH" >> ~/.bashrc
 source ~/.bashrc
 ```
 
-2. After install open terminal and run command
+3. After install open terminal and run command
 ```bash
 go version
 ```

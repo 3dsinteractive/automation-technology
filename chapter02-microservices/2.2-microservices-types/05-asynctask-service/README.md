@@ -43,7 +43,7 @@ go build .
 ```bash
 curl -X POST "localhost:8080/citizen/register" -d '{"firstname":"chaiyapong"}'
 ```
-```json
+```javascript
 {"ref":"atask-xxxxxxxxxxx"}
 ```
 
@@ -51,7 +51,7 @@ curl -X POST "localhost:8080/citizen/register" -d '{"firstname":"chaiyapong"}'
 ```bash
 curl -X GET "localhost:8080/citizen/register?ref=atask-xxxxxxxxxxx"
 ```
-```json
+```javascript
 {"code":200,"data":{"id":"123"},"status":"success"}
 ```
 
