@@ -1,25 +1,43 @@
-Service Startup and Teardown
+## Service Startup and Teardown
 
-1. Open vscode at chapter02-microservices/2.3-service-startup-teardown
+1. Open directory
+```bash
+cd /root/automation-technology/chapter02-microservices/2.3-service-startup-teardown
+```
 
+2. Start kafka and zookeeper
+```bash
+docker compose up -d
+```
 
-2. Start kafka and zookeeper locally via docker
-$ docker compose up -d
-* Wait until container is ready
+3. Wait until container is ready
+```bash
+docker ps
+```
+```bash
+CONTAINER ID   IMAGE                             COMMAND                  CREATED         STATUS         PORTS                                                           NAMES
+77543ea5c2cf   3dsinteractive/kafka:2.0-custom   "/app-entrypoint.sh …"   4 minutes ago   Up 4 minutes   9092/tcp, 0.0.0.0:9094->9094/tcp, :::9094->9094/tcp             05-asynctask-service-kafka-1
+151990488a46   3dsinteractive/zookeeper:3.0      "/app-entrypoint.sh …"   4 minutes ago   Up 4 minutes   2888/tcp, 0.0.0.0:2181->2181/tcp, :::2181->2181/tcp, 3888/tcp   05-asynctask-service-zookeeper-1
+ffb869159a3b   3dsinteractive/redis:4.0          "/app-entrypoint.sh …"   4 minutes ago   Up 4 minutes   0.0.0.0:6379->6379/tcp, :::6379->6379/tcp                       05-asynctask-service-redis-1
+```
 
-$ docker ps
-CONTAINER ID   IMAGE                          COMMAND                  CREATED         STATUS         PORTS                                        NAMES
-eecc315cc549   3dsinteractive/kafka:2.0       "/app-entrypoint.sh …"   2 minutes ago   Up 2 minutes   9092/tcp, 0.0.0.0:9094->9094/tcp             02-consumer-service_kafka_1
-67b5f2efaf0a   3dsinteractive/zookeeper:3.0   "/app-entrypoint.sh …"   2 minutes ago   Up 2 minutes   2888/tcp, 0.0.0.0:2181->2181/tcp, 3888/tcp   02-consumer-service_zookeeper_1
+4. Run command to init project
+```bash
+go mod init automationworkshop/main
+go mod tidy
+```
 
-3. Run command
-$ go mod init automationworkshop/main
-go: creating new go.mod: module automationworkshop/main
+5. Run command to build project
+```bash
+go build .
+```
 
-4. Run command
-$ go build .
-$ ./main
+6. Run program
+```bash
+./main
+```
 
+```bash
 Scheduler: main.go 131 Tick at 22:18:21
 Scheduler: main.go 131 Tick at 22:18:22
 Scheduler: main.go 131 Tick at 22:18:23
@@ -95,6 +113,9 @@ Consumer: main.go 79 {"message_id":9}
 Scheduler: main.go 131 Tick at 22:18:31
 MS: microservice.go 662 Start cleanup
 PROD: producer.go 83 Close successfully
+```
 
-5. Run command to cleanup
-$ docker compose down
+7. Run command to cleanup
+```bash
+docker compose down
+```
