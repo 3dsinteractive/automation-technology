@@ -1,17 +1,28 @@
-Scheduler Service
+## Scheduler Service
 
-0. Look at slide Scheduler Service
+1. Slide Scheduler Service
 
-1. Open vscode at chapter02-microservices/2.2-microservices-types/04-scheduler-service
+2. Open directory
+```bash
+cd /root/automation-technology/chapter02-microservices/2.2-microservices-types/04-scheduler-service
+```
 
-2. Run command
-$ go mod init automationworkshop/main
-go: creating new go.mod: module automationworkshop/main
+3. Run command to init project
+```bash
+go mod init automationworkshop/main
+go mod tidy
+```
 
-3. Run command
-$ go build .
-$ ./main
+4. Run command to build project
+```bash
+go build .
+```
 
+5. Run program
+```bash
+./main
+```
+```bash
 Scheduler:  Tick at 21:40:45
 Scheduler:  Tick at 21:40:46
 Scheduler:  Tick at 21:40:47
@@ -25,7 +36,5 @@ Scheduler:  Tick at 21:40:54
 Scheduler:  Tick at 21:40:55
 Scheduler:  Tick at 21:40:56
 Scheduler:  Tick at 21:40:57
-
-4. Run command for cleanup
-$ docker compose down
+```
 
