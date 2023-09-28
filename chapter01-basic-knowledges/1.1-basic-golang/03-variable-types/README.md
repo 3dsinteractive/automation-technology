@@ -6,8 +6,9 @@ cd /root/automation-technology/chapter01-basic-knowledges/1.1-basic-golang/03-va
 ```
 
 2. Run command
-```sh
+```bash
 go mod init automationworkshop/main
+go mod tidy
 ```
 
 3. Run command
