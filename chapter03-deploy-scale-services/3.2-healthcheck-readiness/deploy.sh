@@ -5,7 +5,7 @@
 APP_VERSION=1.0
 TIMESTAMP=20210117185519
 DEPLOY_ENV=prd
-DOCKER_REPOSITORY=
+DOCKER_REPOSITORY=realcdp
 
 # 2. commit will push docker image to repository
 function commit() {

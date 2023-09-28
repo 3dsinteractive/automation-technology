@@ -7,25 +7,25 @@
 cd /root/automation-technology/chapter03-deploy-scale-services/3.1-deploy-services
 ```
 
-2. Register for https://hub.docker.com
+3. Register for https://hub.docker.com
 
-3. Create public repository call [your-docker-repository-name]/automation-technology
+4. Create public repository call [your-docker-repository-name]/automation-technology
 
-4. Make sure you are logged in with your docker account
+5. Make sure you are logged in with your docker account
 ```bash
 docker login
 username:
 password:
 ```
 
-5. Update file deploy.sh change
+6. Update file deploy.sh change
 ```bash
 DOCKER_REPOSITORY=
 to
 DOCKER_REPOSITORY=[your-docker-repository-name]
 ```
 
-6. Run command (deploy.sh will be the file used to build your project, especially when it integrate with ci/cd)
+7. Run command (deploy.sh will be the file used to build your project, especially when it integrate with ci/cd)
 ```bash
 ./deploy.sh
 ```
