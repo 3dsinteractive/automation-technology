@@ -1,11 +1,13 @@
 ## Run Kafka
 
-1. Enter directory
+1. See what is Kafka in Slides
+
+2. Enter directory
 ```bash
 cd /root/automation-technology/chapter01-basic-knowledges/1.5-basic-kafka/01-run-kafka
 ```
 
-2. Create namespace
+3. Create namespace
 ```bash
 kubectl apply -f 00-namespace.yml 
 ```
@@ -13,7 +15,7 @@ kubectl apply -f 00-namespace.yml
 namespace/basic-kafka created
 ```
 
-3. Check namespace exists
+4. Check namespace exists
 ```bash
 kubectl get ns
 ```
@@ -27,7 +29,7 @@ ingress           Active   39m
 basic-kafka       Active   7s
 ```
 
-4. Create zookeeper service
+5. Create zookeeper service
 ```bash
 kubectl apply -f 02-service-zk.yml
 ```
@@ -37,7 +39,7 @@ service/zk2 created
 service/zk3 created
 ```
 
-5. Create zookeeper deployment
+6. Create zookeeper deployment
 ```bash
 kubectl apply -f 01-deployment-zk.yml
 ```
@@ -48,7 +50,7 @@ deployment.apps/zk2 created
 deployment.apps/zk3 created
 ```
 
-6. Check zookeeper deployment
+7. Check zookeeper deployment
 ```bash
 kubectl get po -n basic-kafka
 ```
@@ -61,7 +63,7 @@ zk3-6c88b6f849-jrqz5   1/1     Running   0          4m36s
 
 **Wait until STATUS = Running and READY = 1/1**
 
-7. Check zookeeper service
+8. Check zookeeper service
 ```bash
 kubectl get svc -n basic-kafka
 ```
@@ -71,7 +73,7 @@ zk1    ClusterIP   None         <none>        2181/TCP,2888/TCP,3888/TCP   8s
 zk2    ClusterIP   None         <none>        2181/TCP,2888/TCP,3888/TCP   8s
 zk3    ClusterIP   None         <none>        2181/TCP,2888/TCP,3888/TCP   8s
 ```
-8. Create kafka service
+9. Create kafka service
 ```bash
 kubectl apply -f 04-service-kfk.yml
 ```
@@ -81,7 +83,7 @@ service/kfk2 created
 service/kfk3 created
 ```
 
-9. Create kafka deployment
+10. Create kafka deployment
 ```bash
 kubectl apply -f 03-deployment-kfk.yml
 ```
@@ -91,7 +93,7 @@ deployment.apps/kfk2 created
 deployment.apps/kfk3 created
 ```
 
-10. Check kafka deployment
+11. Check kafka deployment
 ```bash
 kubectl get po -n basic-kafka
 ```
@@ -107,7 +109,7 @@ kfk3-fbbd79879-hlp25    1/1     Running   0          4m53s
 
 **Wait until STATUS = Running and READY = 1/1**
 
-11. Check kafka service
+12. Check kafka service
 ```bash
 kubectl get svc -n basic-kafka
 ```
@@ -121,7 +123,7 @@ kfk2   ClusterIP   None         <none>        9092/TCP                     6s
 kfk3   ClusterIP   None         <none>        9092/TCP                     6s
 ```
 
-12. Create client-util pod
+13. Create client-util pod
 ```bash
 kubectl apply -f 05-client-util.yml
 ```
@@ -129,12 +131,12 @@ kubectl apply -f 05-client-util.yml
 pod/client-util created
 ```
 
-13. Exec into client-util pod
+14. Exec into client-util pod
 ```bash
 kubectl exec -it client-util -n basic-kafka -- bash
 ```
 
-14. Run kafkacat -L to list brokers and topics
+15. Run kafkacat -L to list brokers and topics
 ```bash
 kafkacat -b "kfk1,kfk2,kfk3" -L
 ```
@@ -147,11 +149,11 @@ Metadata for all topics (from broker -1: kfk1:9092/bootstrap):
  0 topics:
 ```
 
-15. Exit client-util
+16. Exit client-util
 ```bash
 exit
 ```
 
-16. Do not cleanup workshop, we will use it in next workshop
+17. Do not cleanup workshop, we will use it in next workshop
 
 
