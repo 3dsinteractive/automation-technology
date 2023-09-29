@@ -26,7 +26,7 @@ docker ps
 curl -X GET "localhost:8080/index.html"
 ```
 
-6. Explain section in docker compose.yml
+6. Explain section in docker-compose.yml
 
 7. Run command
 ```bash
