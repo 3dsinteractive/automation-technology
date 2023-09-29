@@ -1,6 +1,6 @@
 ## Run Nginx with Docker
 
-1. Slides 1.6 Basic Docker (Why we need Docker?)
+1. See Why we need Docker in Slides
 
 2. Open directory
 ```bash
