@@ -57,7 +57,7 @@ curl -X GET "localhost:8080/citizen/batch?task_id=email_a"
 **The response can be formatted with jq**
 
 ```bash
-apt install jq
+apt install -y jq
 ```
 
 ```bash
