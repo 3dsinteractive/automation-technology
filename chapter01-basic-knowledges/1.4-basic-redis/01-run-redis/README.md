@@ -72,6 +72,7 @@ redis   ClusterIP   None         <none>        6379/TCP   22s
 
 9. Create client-util pod
 ```bash
+docker pull opcellent/util:2.0
 kubectl apply -f 03-client-util.yml
 ```
 ```bash
