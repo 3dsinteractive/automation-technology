@@ -1,11 +1,13 @@
 ## Run nginx with k8s
 
-1. Open directory
+1. See what is K8S in Slides
+
+2. Open directory
 ```bash
 cd /root/automation-technology/chapter01-basic-knowledges/1.3-basic-kubernetes/02-run-nginx-with-k8s
 ```
 
-2. Run command to create namespace
+3. Run command to create namespace
 ```bash
 kubectl apply -f 00-namespace.yml
 ```
@@ -14,7 +16,7 @@ kubectl apply -f 00-namespace.yml
 namespace/basic-k8s created
 ```
 
-3. Check for namespace (basic-k8s)
+4. Check for namespace (basic-k8s)
 ```bash
 kubectl get ns
 ```
@@ -28,7 +30,7 @@ kube-public       Active   6h40m
 kube-system       Active   6h40m
 ```
 
-4. Create deployment for nginx
+5. Create deployment for nginx
 ```bash
 kubectl apply -f 01-deployment.yml
 ```
@@ -37,7 +39,7 @@ kubectl apply -f 01-deployment.yml
 deployment.apps/nginx created
 ```
 
-5. Check for nginx deployment
+6. Check for nginx deployment
 ```bash
 kubectl get pod -n basic-k8s
 ```
@@ -47,7 +49,7 @@ NAME                    READY   STATUS    RESTARTS   AGE
 nginx-7c7ddc7b7-cvb8z   1/1     Running   0          64s
 ```
 
-6. Create service for nginx
+7. Create service for nginx
 ```bash
 kubectl apply -f 02-service.yml
 ```
@@ -56,7 +58,7 @@ kubectl apply -f 02-service.yml
 service/nginx created
 ```
 
-7. Check for service nginx
+8. Check for service nginx
 ```bash
 kubectl get svc -n basic-k8s
 ```
@@ -66,7 +68,7 @@ NAME    TYPE        CLUSTER-IP       EXTERNAL-IP   PORT(S)             AGE
 nginx   ClusterIP   10.152.183.221   <none>        8080/TCP,8443/TCP   23s
 ```
 
-8. Create ingress rule to nginx service
+9. Create ingress rule to nginx service
 ```bash
 kubectl apply -f 03-ingress.yml
 ```
@@ -75,7 +77,7 @@ kubectl apply -f 03-ingress.yml
 ingress.networking.k8s.io/ingress created
 ```
 
-9. Check for ingress rule
+10. Check for ingress rule
 ```bash
 kubectl get ing -n basic-k8s
 ```
@@ -85,7 +87,7 @@ NAME      CLASS    HOSTS                        ADDRESS   PORTS   AGE
 ingress   <none>   kubernetes.docker.internal             80      37s
 ```
 
-10. Test access service via ingress
+11. Test access service via ingress
 ```bash
 curl -X GET "http://kubernetes.docker.internal"
 ```
@@ -118,7 +120,7 @@ Commercial support is available at
 </html>
 ```
 
-11. Run command to cleanup
+12. Run command to cleanup
 ```bash
 kubectl delete ns basic-k8s
 ```
