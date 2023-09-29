@@ -53,10 +53,10 @@ spec:
         - name: KAFKA_INTER_BROKER_LISTENER_NAME
           value: INSIDE
         - name: KAFKA_HEAP_OPTS
-          value: -Xmx500M -Xms500M
+          value: -Xmx300M -Xms300M
         resources:
           requests:
-            memory: 500Mi
+            memory: 300Mi
             cpu: 100m
           limits:
             memory: 1Gi
@@ -133,10 +133,10 @@ spec:
         - name: KAFKA_INTER_BROKER_LISTENER_NAME
           value: INSIDE
         - name: KAFKA_HEAP_OPTS
-          value: -Xmx500M -Xms500M
+          value: -Xmx300M -Xms300M
         resources:
           requests:
-            memory: 500Mi
+            memory: 300Mi
             cpu: 100m
           limits:
             memory: 1Gi
@@ -213,10 +213,10 @@ spec:
         - name: KAFKA_INTER_BROKER_LISTENER_NAME
           value: INSIDE
         - name: KAFKA_HEAP_OPTS
-          value: -Xmx500M -Xms500M
+          value: -Xmx300M -Xms300M
         resources:
           requests:
-            memory: 500Mi
+            memory: 300Mi
             cpu: 100m
           limits:
             memory: 1Gi
