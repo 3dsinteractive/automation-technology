@@ -15,5 +15,6 @@ docker login
 
 5. Run command (Change [your-repository-name] to your registered docker name)
 ```bash
+docker tag 3dsinteractive/mynginx:1.0 [your-repository-name]/mynginx:1.0
 docker push [your-repository-name]/mynginx:1.0
 ```
