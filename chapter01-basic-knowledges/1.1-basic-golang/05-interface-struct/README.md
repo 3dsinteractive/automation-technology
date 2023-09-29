@@ -1,6 +1,6 @@
 ## Interface and struct
 
-1. Slide Interface & Struct
+1. See what is Interface & Struct in Slides
 
 2. Open directory
 ```bash
