@@ -52,6 +52,7 @@ Removing network 1202-run-nginx-with-docker_default
 8. Run command to check nginx is stop and remove
 ```bash
 docker ps
+docker ps --format '{{.Image}}\t{{.Status}}\t{{.Ports}}'
 ```
 
 ```bash

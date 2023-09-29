@@ -15,6 +15,7 @@ docker compose up -d
 4. Wait until container is ready
 ```bash
 docker ps
+docker ps --format '{{.Image}}\t{{.Status}}\t{{.Ports}}'
 ```
 ```bash
 CONTAINER ID   IMAGE                             COMMAND                  CREATED         STATUS         PORTS                                                           NAMES

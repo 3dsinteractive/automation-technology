@@ -19,6 +19,7 @@ docker compose up -d
 
 ```bash
 docker ps
+docker ps --format '{{.Image}}\t{{.Status}}\t{{.Ports}}'
 ```
 
 5. Run command
