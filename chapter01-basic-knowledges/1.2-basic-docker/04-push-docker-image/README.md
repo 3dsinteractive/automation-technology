@@ -1,6 +1,6 @@
 ## Push docker image
 
-1. Slides 1.2 Basic Docker (Docker images and containers)
+1. See What is build and push Docker image in Slides
 
 2. Register for https://hub.docker.com
 

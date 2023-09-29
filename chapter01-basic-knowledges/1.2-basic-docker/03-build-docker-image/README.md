@@ -1,16 +1,18 @@
 ## Build docker image
 
-1. Open directory
+1. See What is build and push Docker image in Slides
+
+2. Open directory
 ```bash
 cd /root/automation-technology/chapter01-basic-knowledges/1.2-basic-docker/03-build-docker-image
 ```
 
-2. Run command
+3. Run command
 ```bash
 docker build -t 3dsinteractive/mynginx:1.0 .
 ```
 
-3. Run command
+4. Run command
 ```bash
 docker compose up -d
 ```
@@ -20,7 +22,7 @@ Creating network "03-build-docker-image_default" with the default driver
 Creating 03-build-docker-image_nginx_1 ... done
 ```
 
-4. Run command
+5. Run command
 ```bash
 curl -X GET localhost:8080/index.html
 ```
@@ -34,9 +36,9 @@ curl -X GET localhost:8080/index.html
 </html>
 ```
 
-5. Explain Dockerfile
+6. Explain Dockerfile
 
-6. Run command to stop nginx
+7. Run command to stop nginx
 ```bash
 docker compose down
 ```
@@ -47,7 +49,7 @@ Removing nginx ... done
 Removing network 1202-run-nginx-with-docker_default
 ```
 
-7. Run command to check nginx is stop and remove
+8. Run command to check nginx is stop and remove
 ```bash
 docker ps
 ```
