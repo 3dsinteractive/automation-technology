@@ -10,6 +10,11 @@ apt install -y zsh
 sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 ```
 
+### When Get Lost
+```bash
+cd ~/automation-techonology
+```
+
 ### Docker
 ```bash
 docker ps -a
