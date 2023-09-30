@@ -12,7 +12,7 @@ sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.
 
 ### When Get Lost
 ```bash
-cd ~/automation-techonology
+cd ~/automation-technology
 ```
 
 ### Docker
