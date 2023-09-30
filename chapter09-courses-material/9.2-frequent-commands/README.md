@@ -15,6 +15,14 @@ sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.
 cd ~/automation-technology
 ```
 
+### Hostfile Entry
+```bash
+Host automation.technology
+  HostName xxx.xxx.xxx.xxx
+  User root
+  IdentityFile /Users/MyUser/Desktop/pam-training-keypair.pem
+```
+
 ### Docker
 ```bash
 docker ps -a
