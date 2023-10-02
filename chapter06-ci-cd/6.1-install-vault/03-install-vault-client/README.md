@@ -35,7 +35,7 @@ echo "127.0.0.1    myvault.3dsinteractive.com" | sudo tee -a /etc/hosts
 
 6. Setup vault endpoint
 ```bash
-echo "export VAULT_ADDR='https://myvault.3dsinteractive.com'" >> ~/.bashrc
+echo "export VAULT_ADDR='https://myvault.3dsinteractive.com:8200'" >> ~/.bashrc
 source ~/.bashrc
 ```
 
