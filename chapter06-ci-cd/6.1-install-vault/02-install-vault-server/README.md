@@ -19,3 +19,8 @@ apt -y install make
 ```bash
 make start
 ```
+
+5. Change owner of vault data directory
+```bash
+chown -Rf 100 vault
+```

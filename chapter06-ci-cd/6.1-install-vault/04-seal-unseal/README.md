@@ -5,6 +5,7 @@
 vault operator init
 ```
 
+2. Write down all unseal keys and initial root access token
 ```bash
 Unseal Key 1: xxxxx
 Unseal Key 2: xxxxx
