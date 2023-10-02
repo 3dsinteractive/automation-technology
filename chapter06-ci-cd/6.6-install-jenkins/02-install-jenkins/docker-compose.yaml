@@ -1,0 +1,25 @@
+version: "3"
+services:
+  lb:
+    image: 3dsinteractive/nginx:1.12
+    ports:
+    - 80:8080
+    - 443:8443
+    depends_on:
+    - jenkins
+    restart: always
+    volumes:
+    - ./dockers/lb/logs:/opt/bitnami/nginx/logs
+    - ./dockers/lb/nginx:/bitnami/nginx
+    - ./dockers/certs:/bitnami/nginx/conf/bitnami/certs
+  jenkins:
+    image: 3dsinteractive/jenkins:2.361
+    pull_policy: always
+    ports:
+    - 35597:35597
+    - 50000:50000
+    volumes:
+    - /var/run/docker.sock:/var/run/docker.sock
+    - /usr/bin/docker:/usr/bin/docker
+    - ./dockers/jenkins/data:/var/jenkins_home
+    - ./dockers/jenkins/ssh:/root/.ssh

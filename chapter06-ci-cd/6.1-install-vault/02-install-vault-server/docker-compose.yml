@@ -1,0 +1,19 @@
+version: "3"
+services:
+  vault:
+    image: 3dsinteractive/vault:1.9-workshop
+    container_name: vault
+    cap_add:
+      - IPC_LOCK
+    ports:
+      - "443:8200"
+      - "8200:8200"
+    volumes:
+      - ./vault/cert:/vault/cert
+      - ./vault/config:/vault/config
+      - ./vault/logs:/vault/logs
+      - ./vault/data:/vault/data
+    environment:
+      VAULT_ADDR: http://0.0.0.0:8200
+      VAULT_API_ADDR: http://0.0.0.0:8200
+    command: vault server -config=/vault/config/vault.hcl
