@@ -2,7 +2,7 @@
 
 1. Open directory
 ```bash
-cd /root/automation-technology/chapter06-ci-cd/6.1-install-vault/02-install-vault
+cd /root/automation-technology/chapter06-ci-cd/6.1-install-vault/02-install-vault-server
 ```
 
 2. Change owner of vault directory
