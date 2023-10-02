@@ -13,7 +13,7 @@ services:
     - ./dockers/lb/nginx:/bitnami/nginx
     - ./dockers/certs:/bitnami/nginx/conf/bitnami/certs
   jenkins:
-    image: 3dsinteractive/jenkins:2.361
+    image: 3dsinteractive/jenkins:2.425
     pull_policy: always
     ports:
     - 35597:35597
