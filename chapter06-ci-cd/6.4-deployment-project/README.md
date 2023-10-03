@@ -9,3 +9,11 @@ cd /root
 ```bash
 git clone https://github.com/3dsinteractive/automation-tech-k8s.git
 ```
+
+3. Explain each part in deployment project
+```bash
+cd /root/automation-tech-k8s
+```
+```bash
+code .
+```
