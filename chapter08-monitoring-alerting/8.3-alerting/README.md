@@ -21,9 +21,17 @@ kubectl exec -n tcir-app -it <CLIENT-UTIL-POD> -- bash
 curl -X GET "http://els1:9200/metrics/_search" -H 'content-type: application/json' -d '{"size":20,"sort":[{"created_at":{"order":"desc"}}]}' | jq
 ```
 
-5. Run command
+5. Build
 ```bash
-go mod init automationworkshop/main
-go mod tidy
+./deploy.sh
 ```
 
+6. Deploy
+```bash
+/root/automation-technology/devopsctl-cli/devopsctl setup -d mon
+```
+
+7. Get pod
+```bash
+kubectl get po -n tcir-app
+```

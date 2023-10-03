@@ -6,10 +6,9 @@
 cd /root/automation-technology/chapter08-monitoring-alerting/8.2-node-metrics
 ```
 
-2. Run command
+2. Build
 ```bash
-go mod init automationworkshop/main
-go mod tidy
+./deploy.sh
 ```
 
 3. Deploy
