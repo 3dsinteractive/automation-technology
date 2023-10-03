@@ -10,4 +10,4 @@ Build-Step (shell) : ./test.sh
 
 3. Update project build-tcir to trigger only if test-tcir stable
 
-4. Update build-tcir to poll SCM every minute
+4. Update test-tcir to poll SCM every minute
