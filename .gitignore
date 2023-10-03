@@ -9,3 +9,7 @@ error.log
 vault
 out-db.yml
 out-tcir.yml
+out-util.yml
+out-mon.yml
+out-*
+devopsctl
