@@ -10,4 +10,3 @@ cd /root/automation-technology/chapter07-automate-test/7.1-unit-test
 go mod init automationworkshop/main
 go mod tidy
 ```
-
