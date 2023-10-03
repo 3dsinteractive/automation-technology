@@ -10,3 +10,7 @@ cd /root/automation-technology/chapter07-automate-test/7.1-unit-test
 go mod init automationworkshop/main
 go mod tidy
 ```
+
+3. Run Test
+
+4. Check Method **onPostClient(ctx IContext, cfg IConfig, rnd IRandom)** in main.go

@@ -4,6 +4,7 @@ package main
 import (
 	"encoding/json"
 	"net/http"
+	"strings"
 	"time"
 )
 
@@ -33,20 +34,6 @@ func main() {
 	ms.Start()
 }
 
-type IRandom interface {
-	Random() string
-}
-
-type Random struct{}
-
-func NewRandom() *Random {
-	return &Random{}
-}
-
-func (r *Random) Random() string {
-	return randString()
-}
-
 func startRegisterAPI(ms *Microservice, cfg IConfig) {
 	ms.AsyncPOST("/api/citizen", cfg.CacheServer(), cfg.MQServers(), func(ctx IContext) error {
 		// 1. Read Input (Not using it right now, just for example)
@@ -67,21 +54,29 @@ func startRegisterAPI(ms *Microservice, cfg IConfig) {
 // This onPostClient accept all arguments as interface, so we can mock and test all logic using unit test
 func onPostClient(ctx IContext, cfg IConfig, rnd IRandom) error {
 	citizenID := rnd.Random()
-	citizen := map[string]interface{}{
-		"citizen_id": citizenID,
-	}
-	prod := ctx.Producer(cfg.MQServers())
-	err := prod.SendMessage(cfg.CitizenRegisteredTopic(), "", citizen)
-	if err != nil {
-		ctx.Log(err.Error())
-		return err
-	}
 
-	status := map[string]interface{}{
-		"status":     "success",
-		"citizen_id": citizenID,
+	startWithZero := strings.HasPrefix(citizenID, "0")
+	if !startWithZero && len(citizenID) > 0 {
+		citizen := map[string]interface{}{
+			"citizen_id": citizenID,
+		}
+		prod := ctx.Producer(cfg.MQServers())
+		err := prod.SendMessage(cfg.CitizenRegisteredTopic(), "", citizen)
+		if err != nil {
+			ctx.Log(err.Error())
+			return err
+		}
+		status := map[string]interface{}{
+			"status":     "success",
+			"citizen_id": citizenID,
+		}
+		ctx.Response(http.StatusOK, status)
+	} else {
+		status := map[string]interface{}{
+			"status": "failed",
+		}
+		ctx.Response(http.StatusOK, status)
 	}
-	ctx.Response(http.StatusOK, status)
 
 	return nil
 }
