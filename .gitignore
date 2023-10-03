@@ -7,3 +7,5 @@ vendor
 access.log
 error.log
 vault
+out-db.yml
+out-tcir.yml
