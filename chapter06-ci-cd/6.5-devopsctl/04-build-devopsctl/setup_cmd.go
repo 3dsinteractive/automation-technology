@@ -113,7 +113,8 @@ func generateDeploymentFile(
 	deployTypes string, // deployTypes is comma separated value of service (prefix or full name) that want to create
 	ns string,
 	outFile string,
-	tmplURLPrefix string) error {
+	tmplURLPrefix string,
+	externalEnvs map[string]string) error {
 
 	file := NewFile()
 	// Append backslash "/" after template directory if not exists
@@ -151,7 +152,7 @@ func generateDeploymentFile(
 
 				// Create deployment file by downloading from deployment template on github
 				// then replace variable from envFile
-				dploy, err := readDeployment(ms, ctx, service, buildsDir, envFile.Envs, ns, tmplURLPrefix)
+				dploy, err := readDeployment(ms, ctx, service, buildsDir, envFile.Envs, ns, tmplURLPrefix, externalEnvs)
 				if err != nil {
 					ms.Log("CMD", err.Error())
 					return err
@@ -183,7 +184,8 @@ func readDeployment(
 	buildsDir string,
 	allEnvs []*Env,
 	namespace string,
-	tmplURLPrefix string) (string, error) {
+	tmplURLPrefix string,
+	externalEnvs map[string]string) (string, error) {
 
 	// If TmplFile is URL we use requester, otherwise we use file
 	imageName := service["image"]
@@ -209,7 +211,7 @@ func readDeployment(
 		name = alias
 	}
 
-	envs, err := readEnvs(ms, imageName, allEnvs, tmplURLPrefix)
+	envs, err := readEnvs(ms, imageName, allEnvs, tmplURLPrefix, externalEnvs)
 	if err != nil {
 		ms.Log("CMD", err.Error())
 		return "", err
@@ -276,7 +278,8 @@ func readEnvs(
 	ms IMicroservice,
 	image string,
 	allEnvs []*Env,
-	tmplURLPrefix string) (string, error) {
+	tmplURLPrefix string,
+	externalEnvs map[string]string) (string, error) {
 
 	// If TmplFile is URL we use requester, otherwise we use file
 	fileNames, err := getPlatformConfigFileNames(ms, image, tmplURLPrefix)
@@ -315,6 +318,10 @@ func readEnvs(
 				envs = append(envs, &Env{Name: cfgName, Value: value})
 			}
 		}
+	}
+
+	for extEnvKey, extEnvVal := range externalEnvs {
+		envs = append(envs, &Env{Name: extEnvKey, Value: extEnvVal})
 	}
 
 	if len(envs) == 0 {
@@ -574,6 +581,12 @@ type ServiceAttrFile struct {
 }
 
 var (
+	ArgVaultEndpoint *CommandArg = &CommandArg{
+		Name:        "vault",
+		ShortName:   "v",
+		Description: "Vault endpoint",
+		IsRequired:  false,
+	}
 	ArgVaultToken *CommandArg = &CommandArg{
 		Name:        "token",
 		ShortName:   "t",

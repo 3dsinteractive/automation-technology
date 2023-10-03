@@ -15,9 +15,10 @@ func main() {
 		"Setup Application",
 		[]*CommandArg{},
 		[]*CommandArg{
-			ArgVaultToken, // vault token
-			ArgDeploy,     // prefix of service name to deploy
-			ArgBaseDir,    // base directory
+			ArgVaultEndpoint, // vault endpoint
+			ArgVaultToken,    // vault token
+			ArgDeploy,        // prefix of service name to deploy
+			ArgBaseDir,       // base directory
 		},
 		func(ctx IContext) error {
 			// Deploy is prefix of service name to deploy
@@ -31,6 +32,27 @@ func main() {
 			if len(baseDir) == 0 {
 				baseDir = "/root/automation-tech-k8s/automation-technology/app/"
 			}
+
+			vaultEndpoint := ctx.Param(ArgVaultEndpoint.Name)
+			if len(vaultEndpoint) == 0 {
+				vaultEndpoint = "https://myvault.3dsinteractive.com:8200"
+			}
+
+			elsToken := ""
+			vaultPath := "kv/data/customers/customer1/els"
+			vaultToken := ctx.Param(ArgVaultToken.Name)
+			if len(vaultToken) > 0 {
+				var err error
+				vaultSvc := NewVaultService(ctx)
+				elsToken, err = vaultSvc.GetSecretS(vaultEndpoint, vaultToken, vaultPath, "access_token")
+				if err != nil {
+					ms.Log("CMD", err.Error())
+				}
+			}
+			externalEnvs := map[string]string{
+				"ELS_TOKEN": elsToken,
+			}
+
 			// Setup path to read file (this can be read from env)
 			buildsDir := baseDir + "builds"
 			svcFilePath := baseDir + "automation-technology-svc.yml"
@@ -42,7 +64,7 @@ func main() {
 			// Create out-xxx deployment files
 			outFile := fmt.Sprintf("out-%s.yml", deploy)
 			tmplURLPrefix := "https://raw.githubusercontent.com/3dsinteractive/automation-tech-deployment-tmpl/master/"
-			err := generateDeploymentFile(ms, ctx, buildsDir, svcFilePath, envFilePath, deploy, ns, outFile, tmplURLPrefix)
+			err := generateDeploymentFile(ms, ctx, buildsDir, svcFilePath, envFilePath, deploy, ns, outFile, tmplURLPrefix, externalEnvs)
 			if err != nil {
 				ms.Log("CMD", err.Error())
 				return err
