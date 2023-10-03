@@ -30,6 +30,7 @@ func (svc *VaultService) getClient(
 	token string) (*vault.Client, error) {
 
 	config := vault.DefaultConfig()
+	config.Address = vaultAddr
 	client, err := vault.NewClient(config)
 	if err != nil {
 		return nil, err
@@ -73,13 +74,8 @@ func (svc *VaultService) GetSecretM(
 		return retM, nil
 	}
 
-	data, ok := secret.Data["data"].(map[string]interface{})
-	if !ok {
-		return retM, nil
-	}
-
 	for _, k := range keys {
-		val, _ := data[k].(string)
+		val, _ := secret.Data[k].(string)
 		retM[k] = val
 	}
 

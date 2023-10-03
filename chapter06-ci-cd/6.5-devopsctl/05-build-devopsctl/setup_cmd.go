@@ -148,8 +148,6 @@ func generateDeploymentFile(
 		for _, deploy := range deploys {
 			if strings.HasPrefix(name, deploy) {
 
-				ms.Log("CMD", "service.name="+name)
-
 				// Create deployment file by downloading from deployment template on github
 				// then replace variable from envFile
 				dploy, err := readDeployment(ms, ctx, service, buildsDir, envFile.Envs, ns, tmplURLPrefix, externalEnvs)
@@ -190,7 +188,6 @@ func readDeployment(
 	// If TmplFile is URL we use requester, otherwise we use file
 	imageName := service["image"]
 	fileName := imageName + ".yml"
-	ms.Log("CMD", "filename="+fileName)
 
 	body, err := readTemplateBody(ms, tmplURLPrefix, fileName)
 	if err != nil {
@@ -359,7 +356,6 @@ func getPlatformConfigFileNames(
 	image string,
 	tmplURLPrefix string) ([]string, error) {
 
-	ms.Log("CMD", "image="+image)
 	body, err := readTemplateBody(ms, tmplURLPrefix, "cfgmaps.yml")
 	if err != nil {
 		ms.Log("CMD", err.Error())
@@ -402,7 +398,6 @@ func readImage(
 
 	buildFileName := filepath.Join(tmplDir, image+"-build.yml")
 
-	ms.Log("CMD", "buildFileName="+buildFileName)
 	exists, err := file.Exists(buildFileName)
 	if err != nil {
 		ms.Log("CMD", err.Error())
@@ -440,10 +435,8 @@ func readTemplateBody(
 	var err error
 
 	if strings.HasPrefix(tmplURLPrefix, "http://") || strings.HasPrefix(tmplURLPrefix, "https://") {
-		ms.Log("CMD", "tmplURLPrefix="+tmplURLPrefix)
 		rq := NewRequester(tmplURLPrefix, 5*time.Second, ms)
 		body, err = rq.Get(fileName, nil)
-		ms.Log("CMD", "fileName="+fileName)
 		if err != nil {
 			ms.Log("CMD", err.Error())
 			return "", err

@@ -49,6 +49,7 @@ func main() {
 					ms.Log("CMD", err.Error())
 				}
 			}
+			ms.Log("CMD", "elsToken="+elsToken)
 			externalEnvs := map[string]string{
 				"ELS_TOKEN": elsToken,
 			}
