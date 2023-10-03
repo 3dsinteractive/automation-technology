@@ -8,7 +8,7 @@ sysctl -p
 
 2. Open directory
 ```bash
-cd /root/automation-technology/chapter06-ci-cd/6.5-devopsctl/04-build-devopsctl
+cd /root/automation-technology/chapter06-ci-cd/6.5-devopsctl/05-build-devopsctl
 ```
 
 3. Run command to init project
