@@ -30,8 +30,9 @@ vault --version
 
 5. Setup host file
 ```bash
-echo "127.0.0.1    myvault.3dsinteractive.com" | sudo tee -a /etc/hosts
+echo "<MACHINE-1-PRIVATE-IP>   myvault.3dsinteractive.com" | sudo tee -a /etc/hosts
 ```
+**Replace MACHINE-1-PRIVATE-IP with machine 1 IP Address**
 
 6. Setup vault endpoint
 ```bash
@@ -39,4 +40,17 @@ echo "export VAULT_ADDR='https://myvault.3dsinteractive.com:8200'" >> ~/.bashrc
 source ~/.bashrc
 ```
 
+7. Login as admin1
+```bash
+vault login -method=userpass username=admin1
+```
 
+8. List all values in path kv/data/customers/customer1
+```bash
+vault kv list kv/data/customers/customer1
+```
+
+9. List all values in path kv/data/customers/customer1/els
+```bash
+vault kv get kv/data/customers/customer1/els
+```

@@ -6,7 +6,6 @@ services:
     cap_add:
       - IPC_LOCK
     ports:
-      - "443:8200"
       - "8200:8200"
     volumes:
       - ./vault/cert:/vault/cert
