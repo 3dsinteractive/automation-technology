@@ -9,3 +9,5 @@ Build-Step (shell) : ./test.sh
 2. Modify ./test.sh to ./test-fail.sh to show if test is failed
 
 3. Update project build-tcir to trigger only if test-tcir stable
+
+4. Update build-tcir to poll SCM every minute
