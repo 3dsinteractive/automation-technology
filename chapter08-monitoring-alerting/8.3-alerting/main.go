@@ -24,6 +24,8 @@ func main() {
 
 func startNodeDaemon(ms *Microservice, cfg IConfig) {
 	ms.Schedule(time.Minute, func(ctx IContext) error {
+		// Query last 10 metrics
+
 		return nil
 	})
 
