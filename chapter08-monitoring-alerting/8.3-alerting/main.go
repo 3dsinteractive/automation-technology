@@ -79,6 +79,8 @@ func startMetricsAgent(ms *Microservice, cfg IConfig) {
 		}
 		if exceedCPUCounter >= 5 {
 			ctx.Log("ALERT CPU EXCEED")
+		} else {
+			ctx.Log("CPU IS FINE")
 		}
 
 		// if last 5 metrics has mem_used_percent > 90, then alert
@@ -95,6 +97,8 @@ func startMetricsAgent(ms *Microservice, cfg IConfig) {
 		}
 		if exceedMemCounter >= 5 {
 			ctx.Log("ALERT MEMORY EXCEED")
+		} else {
+			ctx.Log("MEMORY IS FINE")
 		}
 		return nil
 	})
