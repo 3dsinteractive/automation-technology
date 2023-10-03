@@ -41,3 +41,8 @@ go build .
 ```bash
 kubectl get po -n tcir-app
 ```
+
+9. Copy main to devopsctl
+```bash
+cp /root/automation-technology/chapter06-ci-cd/6.5-devopsctl/05-build-devopsctl/main /root/automation-technology/devopsctl-cli/devopsctl
+```
