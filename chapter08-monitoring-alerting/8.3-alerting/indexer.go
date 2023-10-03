@@ -11,6 +11,7 @@ import (
 // IIndexer is the interface to search the index
 type IIndexer interface {
 	Index(index string, id string, indoc interface{}) ( /*id*/ string, error)
+	Query(index string, query string) ( /*results*/ []string, int64, error)
 }
 
 type Indexer struct {
@@ -25,6 +26,51 @@ func NewIndexer(servers string, ms IMicroservice) *Indexer {
 		servers: servers,
 		ms:      ms,
 	}
+}
+
+func (idx *Indexer) Query(index string, query string) ( /*results*/ []string, int64, error) {
+
+	client, err := idx.getClient(idx.servers)
+	if err != nil {
+		return nil, 0, err
+	}
+
+	// 7. Build with all options and send the query to elasticsearch
+	svc := client.Search().
+		Index(index).
+		Source(query).
+		IgnoreUnavailable(true)
+
+	var res *elastic.SearchResult
+
+	res, err = svc.Do(context.Background())
+	if err != nil {
+		// IF NOT 404, return error
+		if !idx.isError404NotFound(err) {
+			return nil, 0, err
+		}
+
+		return make([]string, 0), 0, nil
+	}
+
+	// Just prevent if result is nil, must not go next line
+	if res == nil {
+		return make([]string, 0), 0, nil
+	}
+
+	// create the results as array of string
+	docs := make([]string, 0)
+	if len(res.Hits.Hits) > 0 {
+		count := len(res.Hits.Hits)
+		docs = make([]string, count)
+		for i, hit := range res.Hits.Hits {
+			docs[i] = string(*hit.Source)
+		}
+	}
+
+	totalHits := res.Hits.TotalHits
+
+	return docs, totalHits, nil
 }
 
 func (idx *Indexer) Index(

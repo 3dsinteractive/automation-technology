@@ -23,6 +23,10 @@ func main() {
 }
 
 func startNodeDaemon(ms *Microservice, cfg IConfig) {
+	ms.Schedule(time.Minute, func(ctx IContext) error {
+		return nil
+	})
+
 	ms.Schedule(10*time.Second, func(ctx IContext) error {
 
 		osStat, err := osStat()
