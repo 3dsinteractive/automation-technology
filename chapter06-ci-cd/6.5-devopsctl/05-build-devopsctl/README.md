@@ -32,7 +32,12 @@ go build .
 ./main setup -d tcir -t <vault-token>
 ```
 
-7. Get pods
+7. Run setup util
+```bash
+./main setup -d util
+```
+
+8. Get pods
 ```bash
 kubectl get po -n tcir-app
 ```

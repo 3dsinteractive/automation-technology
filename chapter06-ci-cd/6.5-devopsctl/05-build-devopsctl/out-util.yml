@@ -1,0 +1,99 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: client-util
+  namespace: tcir-app
+  labels:
+    name: client-util
+spec:
+  replicas: 1
+  strategy:
+    type: Recreate
+  selector:
+    matchLabels:
+      name: client-util
+  template:
+    metadata:
+      labels:
+        name: client-util
+    spec:
+      containers:
+        - name: client-util
+          image: opcellent/util:2.0
+          stdin: true
+          tty: true
+          imagePullPolicy: Always
+          resources:
+            requests:
+              memory: 300Mi
+              cpu: 20m
+            limits:
+              memory: 3Gi
+              cpu: 1500m
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: kibana
+  namespace: tcir-app
+  labels:
+    name: kibana
+spec:
+  replicas: 1
+  strategy:
+    type: Recreate
+  selector:
+    matchLabels:
+      name: kibana
+  template:
+    metadata:
+      labels:
+        name: kibana
+    spec:
+      containers:
+        - name: kibana
+          image: 3dsinteractive/kibana:6.8
+          imagePullPolicy: Always
+          env:
+            - name: KIBANA_ELASTICSEARCH_URL
+              value: "els1"
+          resources:
+            requests:
+              memory: 100Mi
+              cpu: 20m
+            limits:
+              memory: 500Mi
+              cpu: 300m
+          livenessProbe:
+            tcpSocket:
+              port: 5601
+            initialDelaySeconds: 60
+            timeoutSeconds: 3
+            periodSeconds: 300
+          readinessProbe:
+            tcpSocket:
+              port: 5601
+            initialDelaySeconds: 5
+            timeoutSeconds: 3
+            periodSeconds: 30
+            failureThreshold: 5
+          ports:
+            - containerPort: 5601
+              name: kibana5601
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: kibana
+  namespace: tcir-app
+  labels:
+    name: kibana
+spec:
+  ports:
+    - port: 5601
+      name: "kibana5601"
+      targetPort: 5601
+      protocol: TCP
+  selector:
+    name: kibana
+---
