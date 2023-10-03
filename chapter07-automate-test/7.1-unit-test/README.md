@@ -12,5 +12,15 @@ go mod tidy
 ```
 
 3. Run Test
+```bash
+go test .
+```
 
 4. Check Method **onPostClient(ctx IContext, cfg IConfig, rnd IRandom)** in main.go
+
+5. Check following files
+- main_test.go
+- context_mock.go
+- producer_mock.go
+- config_mock.go
+- random_mock.go
