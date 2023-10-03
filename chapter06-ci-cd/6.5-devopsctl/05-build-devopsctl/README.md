@@ -29,7 +29,7 @@ go build .
 
 6. Run setup for application
 ```bash
-./main setup -d tcir
+./main setup -d tcir -t <vault-token>
 ```
 
 7. Get pods
