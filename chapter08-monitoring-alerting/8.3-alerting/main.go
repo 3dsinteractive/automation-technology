@@ -19,14 +19,14 @@ func main() {
 	switch serviceID {
 	case "node-daemon":
 		startNodeDaemon(ms, cfg)
-	case "alert-agent":
-		startAlertAgent(ms, cfg)
+	case "metrics-agent":
+		startMetricsAgent(ms, cfg)
 	}
 
 	ms.Start()
 }
 
-func startAlertAgent(ms *Microservice, cfg IConfig) {
+func startMetricsAgent(ms *Microservice, cfg IConfig) {
 	ms.Schedule(time.Minute, func(ctx IContext) error {
 		// Query last 5 metrics
 		query := `{
