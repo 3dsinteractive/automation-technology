@@ -30,5 +30,5 @@ kubectl exec -n tcir-app -it <CLIENT-UTIL-POD> -- bash
 
 6. Show metrics
 ```bash
-curl -X GET "http://els1:9200/metrics/_search" | jq
+curl -X GET "http://els1:9200/metrics/_search" -H 'content-type: application/json' -d '{"size":20,"sort":[{"created_at":{"order":"desc"}}]}' | jq
 ```
