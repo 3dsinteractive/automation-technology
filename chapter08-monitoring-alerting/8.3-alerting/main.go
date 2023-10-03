@@ -19,7 +19,7 @@ func main() {
 	switch serviceID {
 	case "node-daemon":
 		startNodeDaemon(ms, cfg)
-	case "metrics-agent":
+	case "metrics-agents":
 		startMetricsAgent(ms, cfg)
 	}
 
