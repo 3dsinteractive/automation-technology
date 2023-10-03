@@ -44,3 +44,23 @@ vault login
 ```
 
 **Use root token**
+
+4. Enable the userpass authentication method
+```bash
+vault auth enable userpass
+```
+
+5. List auth methods
+```bash
+vault auth list
+```
+
+6. Enable kv secret engine
+```bash
+vault secrets enable -path=kv kv
+```
+
+7. List secret engine
+```bash
+vault secrets list
+```

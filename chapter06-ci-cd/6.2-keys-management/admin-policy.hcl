@@ -10,3 +10,6 @@ path "auth/token/lookup" {
 path "kv/data/tokens/*" {
   capabilities = ["list","read","create","update","delete"]
 }
+path "kv/data/customers/*" {
+   capabilities = ["read", "create", "update", "list", "delete"]
+}
