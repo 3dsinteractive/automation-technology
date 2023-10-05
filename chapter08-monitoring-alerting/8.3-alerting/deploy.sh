@@ -14,9 +14,9 @@ function commit() {
     docker push $DOCKER_REPOSITORY/$IMAGE:$DEPLOY_ENV-$APP_VERSION.$TIMESTAMP
 }
 
-# 3. build_node_daemon is the main function to build Dockerfile
-function build_node_daemon() {
-    local IMAGE=automation-technology-node-daemon
+# 3. build_metrics_agents is the main function to build Dockerfile
+function build_metrics_agents() {
+    local IMAGE=automation-technology-metrics-agents
 
     # If found go in default path, it will use go from default path
     GO=/usr/local/go/bin/go
@@ -62,4 +62,4 @@ if [ "$DOCKER_REPOSITORY" == "" ]; then
 fi
 
 # 8. Run main build process
-build_node_daemon
+build_metrics_agents

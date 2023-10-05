@@ -11,3 +11,8 @@ out-db.yml
 out-tcir.yml
 .terraform
 .terraform.lock*
+terraform.tfstate*
+out-util.yml
+out-mon.yml
+out-*
+devopsctl

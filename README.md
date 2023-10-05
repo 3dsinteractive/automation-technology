@@ -93,6 +93,52 @@ Workshop 29 - Coding, Building and Deploy TCIR Application in K8S
 
 Workshop 30 - Scale TCIR Application in K8S
 
+#### Chapter 5. Cloud Infra
+
+Workshop 31 - Setup Cloud Account
+
+Workshop 32 - Install Terraform
+
+Workshop 33 - Apply Terraform
+
+#### Chapter 6. CI / CD
+
+Workshop 34 - Install Vault
+
+Workshop 35 - Keys Management
+
+Workshop 36 - Deployment Templates
+
+Workshop 37 - Deployment Project
+
+Workshop 38 - DevOpsCtl
+
+Workshop 39 - Install Jenkins
+
+Workshop 40 - Create Jenkins Project
+
+Workshop 41 - Deploy with Jenkins
+
+#### Chapter 7. Automate Test
+
+Workshop 42 - Unit Test
+
+Workshop 43 - Test with Jenkins
+
+#### Chapter 8. Monitoring and Alerting
+
+Workshop 44 - Using Elasticsearch
+
+Workshop 45 - Node Metrics
+
+Workshop 46 - Alerting
+
+#### Chapter 9. Course Material
+
+Appendix 1 - References
+
+Appendix 2 - Frequent Commands
+
 ---
 
 By Chaiyapong Lapliengtrakul
