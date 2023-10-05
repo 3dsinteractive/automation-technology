@@ -25,11 +25,11 @@ resource "huaweicloud_compute_instance_v2" "hw_ecs1" {
   image_id          = data.huaweicloud_images_image.hw_image_ecs.id
   flavor_id         = data.huaweicloud_compute_flavors.hw_compute_ecs1.ids[0]
   key_pair          = local.key_name
-  security_group_ids= ["efa50f32-9988-46d1-9ceb-3b34f12423ef"]
+  security_group_ids= [huaweicloud_networking_secgroup.hw_secgroup.id]
   availability_zone = data.huaweicloud_availability_zones.hw_az.names[0]
 
   network {
-    uuid = "e9dee1af-d450-4788-99bd-89db92f95bc8"
+    uuid = huaweicloud_vpc_subnet.hw_subnet.id
   }
 }
 
@@ -43,11 +43,11 @@ resource "huaweicloud_compute_instance_v2" "hw_ecs2" {
   image_id          = data.huaweicloud_images_image.hw_image_ecs.id
   flavor_id         = data.huaweicloud_compute_flavors.hw_compute_ecs2.ids[0]
   key_pair          = local.key_name
-  security_group_ids= ["efa50f32-9988-46d1-9ceb-3b34f12423ef"]
+  security_group_ids= [huaweicloud_networking_secgroup.hw_secgroup.id]
   availability_zone = data.huaweicloud_availability_zones.hw_az.names[0]
 
   network {
-    uuid = "e9dee1af-d450-4788-99bd-89db92f95bc8"
+    uuid = huaweicloud_vpc_subnet.hw_subnet.id
   }
 }
 
