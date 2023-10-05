@@ -16,3 +16,4 @@ out-util.yml
 out-mon.yml
 out-*
 devopsctl
+*.pem
