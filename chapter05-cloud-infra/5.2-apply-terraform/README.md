@@ -41,7 +41,7 @@ Huawei Account secret key
 terraform apply
 ```
 
-8. Input value name
+8. Input value name of each service deployed ex. [your-name]-vpc, [your-name]-ecs 
 ```bash
 Client name (client-name)
 
@@ -52,14 +52,14 @@ Client name (client-name)
 ```bash
 Huawei Account access key 
 
-  Enter a value: [access-key-from-file]
+  Enter a value: [access-key]
 ```
 
 10. Input value secret key
 ```bash
 Huawei Account secret key 
 
-  Enter a value: [secret-key-from-file]
+  Enter a value: [secret-key]
 ```
 
 10. Prompt will ask confirm action
@@ -69,13 +69,6 @@ Do you want to perform these actions?
   Only 'yes' will be accepted to approve.
 
   Enter a value: [type 'yes']
-```
-
-11. Input value secret key
-```bash
-Huawei Account secret key 
-
-  Enter a value: [secret-key-from-file]
 ```
 
 12. Output terraform process done
