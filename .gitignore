@@ -9,3 +9,5 @@ error.log
 vault
 out-db.yml
 out-tcir.yml
+.terraform
+.terraform.lock*
