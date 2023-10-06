@@ -1,6 +1,9 @@
 ## Install Jenkins
 
-1. Open directory
+1. Go to VM 1
+**Make sure you are on VM 1**
+
+2. Open directory
 ```bash
 cd /root/automation-technology/chapter06-ci-cd/6.6-install-jenkins/02-install-jenkins
 ```
