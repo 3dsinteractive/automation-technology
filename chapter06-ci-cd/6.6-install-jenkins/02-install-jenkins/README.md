@@ -59,4 +59,7 @@ Click at Manage Jenkins -> Plugins -> SSH Credential -> Install
 Click at Manage Jenkins -> Plugins -> SSH -> Install
 
 13. Restart Jenkins
+```bash
+docker compose up -d
+```
 
