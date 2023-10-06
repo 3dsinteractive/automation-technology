@@ -45,12 +45,15 @@ source ~/.bashrc
 vault login -method=userpass username=admin1
 ```
 
-8. List all values in path kv/data/customers/customer1
+8. IMPORTANT Write down vault token
+**Don't forget to write down vault token**
+
+9. List all values in path kv/data/customers/customer1
 ```bash
 vault kv list kv/data/customers/customer1
 ```
 
-9. List all values in path kv/data/customers/customer1/els
+10. List all values in path kv/data/customers/customer1/els
 ```bash
 vault kv get kv/data/customers/customer1/els
 ```
