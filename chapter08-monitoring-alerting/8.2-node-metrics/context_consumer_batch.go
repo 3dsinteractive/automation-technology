@@ -29,6 +29,14 @@ func (ctx *BatchConsumerContext) Log(message string) {
 	fmt.Println("Batch Consumer:", fns[len(fns)-1], line, message)
 }
 
+func (ctx *BatchConsumerContext) Error(err error, servers string) {
+	if err != nil {
+		return
+	}
+	ctx.Log(err.Error())
+	// TODO: Log err model in elasticsearch here
+}
+
 // Param return parameter by name (empty in case of Consumer)
 func (ctx *BatchConsumerContext) Param(name string) string {
 	return ""

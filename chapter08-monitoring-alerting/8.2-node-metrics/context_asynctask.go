@@ -33,6 +33,14 @@ func (ctx *AsyncTaskContext) Log(message string) {
 	fmt.Println("ATASK:", fns[len(fns)-1], line, message)
 }
 
+func (ctx *AsyncTaskContext) Error(err error, servers string) {
+	if err != nil {
+		return
+	}
+	ctx.Log(err.Error())
+	// TODO: Log err model in elasticsearch here
+}
+
 // Param return parameter by name (empty in AsyncTask)
 func (ctx *AsyncTaskContext) Param(name string) string {
 	return ""

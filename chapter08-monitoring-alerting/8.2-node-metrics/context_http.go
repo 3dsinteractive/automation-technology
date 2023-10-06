@@ -31,6 +31,14 @@ func (ctx *HTTPContext) Log(message string) {
 	fmt.Println("HTTP:", fns[len(fns)-1], line, message)
 }
 
+func (ctx *HTTPContext) Error(err error, servers string) {
+	if err != nil {
+		return
+	}
+	ctx.Log(err.Error())
+	// TODO: Log err model in elasticsearch here
+}
+
 // Param return parameter by name
 func (ctx *HTTPContext) Param(name string) string {
 	return ctx.c.Param(name)

@@ -27,6 +27,14 @@ func (ctx *SchedulerContext) Log(message string) {
 	fmt.Println("Scheduler:", fns[len(fns)-1], line, message)
 }
 
+func (ctx *SchedulerContext) Error(err error, servers string) {
+	if err != nil {
+		return
+	}
+	ctx.Log(err.Error())
+	// TODO: Log err model in elasticsearch here
+}
+
 // Param return parameter by name (empty in scheduler)
 func (ctx *SchedulerContext) Param(name string) string {
 	return ""

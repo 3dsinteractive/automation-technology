@@ -36,6 +36,14 @@ func (ctx *PTaskContext) Log(message string) {
 	fmt.Println("PTASK:", fns[len(fns)-1], line, message)
 }
 
+func (ctx *PTaskContext) Error(err error, servers string) {
+	if err != nil {
+		return
+	}
+	ctx.Log(err.Error())
+	// TODO: Log err model in elasticsearch here
+}
+
 // Param return parameter by name (empty in AsyncTask)
 func (ctx *PTaskContext) Param(name string) string {
 	return ""

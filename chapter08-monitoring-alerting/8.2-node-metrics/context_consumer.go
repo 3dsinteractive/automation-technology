@@ -29,6 +29,14 @@ func (ctx *ConsumerContext) Log(message string) {
 	fmt.Println("Consumer:", fns[len(fns)-1], line, message)
 }
 
+func (ctx *ConsumerContext) Error(err error, servers string) {
+	if err != nil {
+		return
+	}
+	ctx.Log(err.Error())
+	// TODO: Log err model in elasticsearch here
+}
+
 // Param return parameter by name (empty in case of Consumer)
 func (ctx *ConsumerContext) Param(name string) string {
 	return ""

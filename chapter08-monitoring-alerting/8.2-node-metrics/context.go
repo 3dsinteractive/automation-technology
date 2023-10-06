@@ -6,6 +6,7 @@ import "time"
 // IContext is the context for service
 type IContext interface {
 	Log(message string)
+	Error(err error, servers string)
 	Param(name string) string
 	QueryParam(name string) string
 	Response(responseCode int, responseData interface{})
