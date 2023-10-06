@@ -33,8 +33,9 @@ func startNodeDaemon(ms *Microservice, cfg IConfig) {
 
 		now := NewTimestampT(ctx.Now())
 		nodeName := os.Getenv("MY_NODE_NAME")
+		namespace := os.Getenv("MY_NAMESPACE")
 
-		metric := NewMetrics(nodeName, now)
+		metric := NewMetrics(nodeName, namespace, now)
 		metric.SetMetric("cpu_used_percent", osStat.CPUUserPercent)
 		metric.SetMetric("mem_used_percent", osStat.MemoryUsedPercent)
 

@@ -13,7 +13,7 @@ curl -X GET http://els1:9200/_cluster/health | jq
 
 3. Create mapping for metrics
 ```bash
-curl -X PUT "http://els1:9200/metrics" -H "Content-Type: application/json" -d '{"mappings": {"metrics": {"properties": {"id": {"type": "keyword"}, "node_name": {"type": "keyword"}, "created_at": {"type": "date", "format": "yyyy-MM-dd HH:mm:ss||yyyy-MM-dd||epoch_millis"}, "metrics": {"type": "object", "dynamic": true}}}}}'
+curl -X PUT "http://els1:9200/metrics" -H "Content-Type: application/json" -d '{"mappings": {"metrics": {"properties": {"id": {"type": "keyword"}, "node_name": {"type": "keyword"}, "namespace": {"type": "keyword"}, "created_at": {"type": "date", "format": "yyyy-MM-dd HH:mm:ss||yyyy-MM-dd||epoch_millis"}, "metrics": {"type": "object", "dynamic": true}}}}}'
 ```
 
 4. Show index mapping
