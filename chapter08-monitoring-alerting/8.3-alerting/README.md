@@ -33,5 +33,10 @@ curl -X GET "http://els1:9200/metrics/_search" -H 'content-type: application/jso
 
 7. Get pod
 ```bash
-kubectl get po -n tcir-app
+kubectl get po -n tcir-app | grep metrics-agents
+```
+
+8. Log pod metrics-agents
+```bash
+kubectl logs -n tcir-app <METRICS-AGENTS-POD> -f
 ```
