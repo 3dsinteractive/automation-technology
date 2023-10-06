@@ -29,7 +29,7 @@ docker logs 02-install-jenkins-jenkins-1
 ```
 **Copy password to use later**
 
-6. FOR MAC Add entry in host file
+6. FOR MAC Add entry in host file (/etc/hosts)
 ```bash
 <JENKINS-IP-ADDRESS> myjenkins.3dsinteractive.com
 ```
@@ -46,7 +46,7 @@ user=admin
 password=xxxxxxx
 ```
 
-9. Update jenkins
+9. Update jenkins (If Needed)
 Click at Manage Jenkins -> Update Jenkins
 
 10. Install Git plugin
