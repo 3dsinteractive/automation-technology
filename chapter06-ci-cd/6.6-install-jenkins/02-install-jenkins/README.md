@@ -29,22 +29,34 @@ docker logs 02-install-jenkins-jenkins-1
 ```
 **Copy password to use later**
 
+6. FOR MAC Add entry in host file
+```bash
+<JENKINS-IP-ADDRESS> myjenkins.3dsinteractive.com
+```
+
+7. FOR WINDOWS Add entry in host file
+```bash
+echo <JENKINS-IP-ADDRESS> myjenkins.3dsinteractive.com >> C:\Windows\System32\drivers\etc\hosts
+```
+
+8. Open browser on https://myjenkins.3dsinteractive.com
+
 ```bash
 user=admin
 password=xxxxxxx
 ```
 
-6. Update jenkins
+9. Update jenkins
 Click at Manage Jenkins -> Update Jenkins
 
-7. Install Git plugin
+10. Install Git plugin
 Click at Manage Jenkins -> Plugins -> Git -> Install
 
-8. Install SSH Credential plugin
+11. Install SSH Credential plugin
 Click at Manage Jenkins -> Plugins -> SSH Credential -> Install
 
-9. Install SSH plugin
+12. Install SSH plugin
 Click at Manage Jenkins -> Plugins -> SSH -> Install
 
-9. Restart Jenkins
+13. Restart Jenkins
 
