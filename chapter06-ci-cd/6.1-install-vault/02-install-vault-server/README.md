@@ -24,3 +24,8 @@ make start
 ```bash
 chown -Rf 100 vault
 ```
+
+6. Docker ps
+```bash
+docker ps
+```
