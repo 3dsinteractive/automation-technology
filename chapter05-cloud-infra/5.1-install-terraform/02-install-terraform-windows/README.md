@@ -21,7 +21,6 @@
     > terraform --version
 
 
-
 #### Reference
 - Terraform Official Website (Download Page)
 
