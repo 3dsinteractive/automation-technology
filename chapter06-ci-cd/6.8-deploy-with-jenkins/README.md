@@ -20,7 +20,7 @@ Name: deploy-tcir
 Build Step: Execute shell script on remote host using ssh
 SSH site: root@YOUR-IP-ADDRESS
 Command:
-cd /root/automation-technology/chapter06-ci-cd/6.5-devopsctl/05-build-devopsctl
-./main setup -d tcir
+cd /root/automation-technology/devopsctl-cli
+./devopsctl setup -d tcir
 
 4. Start Build
